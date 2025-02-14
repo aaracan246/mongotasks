@@ -29,7 +29,7 @@ Campos de Tarea:
 Posibles endpoints del proyecto:
 
 User. Gestiona la información relacionada con el usuario. Puedes registrar un usuario para después poder acceder a tu zona de usuario vía login. Además de poder actualizar tu información vía update o eliminarla vía delete. Solo los admin pueden acceder a todos los usuarios.
-/usuarios/register
+/usuarios/register 
 /usuarios/login
 /usuarios/
 /usuarios/update_user/{id}
