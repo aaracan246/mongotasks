@@ -9,7 +9,7 @@ Usuario. Un documento que almacene los datos del usuario. Su nombre, contraseña
 
 Campos de Usuario: 
 - username
-- password
+- password (debe ir hasheada)
 - roles
 - direccion
 - lista<Tarea>
