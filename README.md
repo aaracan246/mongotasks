@@ -12,6 +12,7 @@ Campos de Usuario:
 - password
 - roles
 - direccion
+- lista<Tarea>
 
 Dirección. Un documento que almacena la dirección de un usuario. Usada para verificar vía GeoAPI si la información es correcta.
 
@@ -24,21 +25,29 @@ Tarea. Un documento que almacena la información sobre la tarea a resolver, ya s
 Campos de Tarea:
 - title
 - desc
+- user: Usuario
 
 
 Posibles endpoints del proyecto:
 
 User. Gestiona la información relacionada con el usuario. Puedes registrar un usuario para después poder acceder a tu zona de usuario vía login. Además de poder actualizar tu información vía update o eliminarla vía delete. Solo los admin pueden acceder a todos los usuarios.
 /usuarios/register 
+
 /usuarios/login
+
 /usuarios/
+
 /usuarios/update_user/{id}
+
 /usuarios/delete_user/{id}
 
 Task. Gestiona la información relacionada con las tareas. Puedes registrar una tarea, acceder a todas las tareas y actualizar o eliminar una tarea concreta.
 /tasks/insert_task
+
 /tasks/
+
 /tasks/update_task/{id}
+
 /tasks/delete_task/{id}
 
 La lógica de negocio:
