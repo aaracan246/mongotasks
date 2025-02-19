@@ -31,6 +31,7 @@ Campos de Tarea:
 Posibles endpoints del proyecto:
 
 User. Gestiona la información relacionada con el usuario. Puedes registrar un usuario para después poder acceder a tu zona de usuario vía login. Además de poder actualizar tu información vía update o eliminarla vía delete. Solo los admin pueden acceder a todos los usuarios.
+
 /usuarios/register 
 
 /usuarios/login
@@ -42,6 +43,7 @@ User. Gestiona la información relacionada con el usuario. Puedes registrar un u
 /usuarios/delete_user/{id}
 
 Task. Gestiona la información relacionada con las tareas. Puedes registrar una tarea, acceder a todas las tareas y actualizar o eliminar una tarea concreta.
+
 /tasks/insert_task
 
 /tasks/
