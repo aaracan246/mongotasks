@@ -16,7 +16,7 @@ class APIExceptionHandler {
         IllegalArgumentException::class,
         NumberFormatException::class,
         BadRequestException::class,
-        ChangeSetPersister.NotFoundException::class)
+        )
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
     fun handleBadRequest(request: HttpServletRequest, e: Exception) : ErrorResponse {
@@ -30,10 +30,4 @@ class APIExceptionHandler {
         return ErrorResponse(e.message!!, request.requestURI)
     }
 
-    @ExceptionHandler(Exception::class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    @ResponseBody
-    fun handleGeneric(request: HttpServletRequest, e: Exception) : ErrorResponse {
-        return ErrorResponse(e.message!!, request.requestURI)
-    }
 }
