@@ -13,22 +13,24 @@ import org.springframework.http.ResponseEntity
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.core.Authentication
-import org.springframework.security.core.AuthenticationException
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+import javax.naming.AuthenticationException
+
 
 @RestController
 @RequestMapping("/usuarios")
 class UsuarioController {
 
-    @Autowired
-    private lateinit var authenticationManager: AuthenticationManager
+
     @Autowired
     private lateinit var tokenService: TokenService
     @Autowired
     private lateinit var usuarioService: UsuarioService
+    @Autowired
+    private lateinit var authenticationManager: AuthenticationManager
 
     @PostMapping("/register")
     fun insert(
@@ -36,10 +38,23 @@ class UsuarioController {
         @RequestBody usuarioRegisterDTO: UsuarioRegisterDTO
     ) : ResponseEntity<UsuarioDTO> {
 
+        if (usuarioRegisterDTO.username.isEmpty()){
+            throw Exception("Username cannot be empty.")
+        }
+        else if (usuarioRegisterDTO.password.isEmpty()){
+            throw Exception("Password cannot be empty.")
+        }
+        else if (usuarioRegisterDTO.passwordRepeat.isEmpty() && usuarioRegisterDTO.passwordRepeat != usuarioRegisterDTO.password ){
+            throw Exception("PasswordR cannot be empty nor different than the previous one.")
+        }
+        else if (usuarioRegisterDTO.rol?.isEmpty() == true){
+            throw Exception("Rol cannot be empty.")
+        }
+
+
         val usuarioInsertadoDTO: UsuarioDTO = usuarioService.insertUser(usuarioRegisterDTO)
 
         return ResponseEntity(usuarioInsertadoDTO, HttpStatus.CREATED)
-
     }
 
     @PostMapping("/login")
@@ -58,5 +73,4 @@ class UsuarioController {
 
         return ResponseEntity(mapOf("token" to token), HttpStatus.CREATED)
     }
-
 }

@@ -26,7 +26,7 @@ class UsuarioService : UserDetailsService {
 
 
     override fun loadUserByUsername(username: String?): UserDetails {
-        var usuario: Usuario = usuarioRepository
+        val usuario: Usuario = usuarioRepository
             .findByUsername(username!!)
             .orElseThrow {
                 NotFoundException("$username no existente")
@@ -44,7 +44,6 @@ class UsuarioService : UserDetailsService {
         // COMPROBACIONES
         // Comprobar si los campos vienen vacíos
         if (usuarioInsertadoDTO.username.isBlank()
-            || usuarioInsertadoDTO.email.isBlank()
             || usuarioInsertadoDTO.password.isBlank()
             || usuarioInsertadoDTO.passwordRepeat.isBlank()) {
 
