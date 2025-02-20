@@ -68,9 +68,8 @@ class UsuarioController {
             throw NotAuthorizedException("Credenciales incorrectas")
         }
 
-        // SI PASAMOS LA AUTENTICACIÓN, SIGNIFICA QUE ESTAMOS BIEN AUTENTICADOS
-        // PASAMOS A GENERAR EL TOKEN
-        var token = tokenService.generarToken(authentication)
+        // Se genera TOKEN
+        val token = tokenService.generarToken(authentication)
 
         return ResponseEntity(mapOf("token" to token), HttpStatus.CREATED)
     }

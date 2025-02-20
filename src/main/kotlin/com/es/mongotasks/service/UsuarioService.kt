@@ -57,7 +57,7 @@ class UsuarioService : UserDetailsService {
 
         // comprobar que ambas passwords sean iguales
         if(usuarioInsertadoDTO.password != usuarioInsertadoDTO.passwordRepeat) {
-            throw BadRequestException("Las contrasenias no coinciden")
+            throw BadRequestException("Las contraseñas no coinciden")
         }
 
         // Comprobar el ROL
@@ -74,7 +74,7 @@ class UsuarioService : UserDetailsService {
                 val provinciaEncontrada = datosProvincias.data.stream().filter {
                     it.PRO == usuarioInsertadoDTO.direccion.provincia.uppercase()
                 }.findFirst().orElseThrow {
-                    BadRequestException("Provincia ${usuarioInsertadoDTO.direccion.provincia} no encontrada")
+                    NotFoundException("Provincia ${usuarioInsertadoDTO.direccion.provincia} no encontrada.")
                 }
                 cpro = provinciaEncontrada.CPRO
             }
@@ -87,12 +87,12 @@ class UsuarioService : UserDetailsService {
                 datosMunicipios.data.stream().filter {
                     it.DMUN50 == usuarioInsertadoDTO.direccion.municipio.uppercase()
                 }.findFirst().orElseThrow {
-                    BadRequestException("Municipio ${usuarioInsertadoDTO.direccion.municipio} incorrecto")
+                    NotFoundException("Municipio ${usuarioInsertadoDTO.direccion.municipio} incorrecto")
                 }
             }
         }
 
-        // Insertar el user (convierto a Entity)
+        // Insertar el user
         val usuario = Usuario(
             null,
             usuarioInsertadoDTO.username,

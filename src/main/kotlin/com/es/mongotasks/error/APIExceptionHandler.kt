@@ -1,5 +1,6 @@
 package com.es.mongotasks.error
 
+import com.es.mongotasks.error.exception.NotFoundException
 import jakarta.servlet.http.HttpServletRequest
 import org.apache.coyote.BadRequestException
 import org.springframework.data.crossstore.ChangeSetPersister
@@ -23,11 +24,10 @@ class APIExceptionHandler {
         return ErrorResponse(e.message!!, request.requestURI)
     }
 
-    @ExceptionHandler(ChangeSetPersister.NotFoundException::class)
+    @ExceptionHandler(NotFoundException::class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ResponseBody
     fun handleNotFound(request: HttpServletRequest, e: Exception) : ErrorResponse {
         return ErrorResponse(e.message!!, request.requestURI)
     }
-
 }
