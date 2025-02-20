@@ -1,10 +1,11 @@
 package com.es.mongotasks.controller
 
+import com.es.mongotasks.service.TokenService
 import com.es.mongotasks.dto.LoginUsuarioDTO
 import com.es.mongotasks.dto.UsuarioDTO
 import com.es.mongotasks.dto.UsuarioRegisterDTO
 import com.es.mongotasks.error.exception.NotAuthorizedException
-import com.es.mongotasks.service.TokenService
+
 import com.es.mongotasks.service.UsuarioService
 import jakarta.servlet.http.HttpServletRequest
 import org.springframework.beans.factory.annotation.Autowired
