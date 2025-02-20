@@ -18,7 +18,6 @@ class TokenService {
 
     fun generarToken(authentication: Authentication) : String {
 
-        println("diediejdei")
 
         val roles: String = authentication.authorities.joinToString(" ") { it.authority } // Contiene los roles del usuario
 
@@ -30,6 +29,6 @@ class TokenService {
             .claim("roles", roles)
             .build()
 
-        return jwtEncoder.encode(JwtEncoderParameters.from(payload)).tokenValue;
+        return jwtEncoder.encode(JwtEncoderParameters.from(payload )).tokenValue;
     }
 }
