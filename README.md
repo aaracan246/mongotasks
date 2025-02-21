@@ -112,5 +112,8 @@ LogCat exitoso:
 ![CapMongo8](https://github.com/user-attachments/assets/d97097ae-6fb1-4faa-a6c7-d9af95caef14)
 
 
+Usuario en MongoDB para el login:
+
+![CapMongo99](https://github.com/user-attachments/assets/e076904d-0008-4c61-a987-5b0fa45aefbc)
 
 
