@@ -98,7 +98,7 @@ Login (no funcional en interfaz aún):
 ![CapMongo6](https://github.com/user-attachments/assets/2525e572-5838-4574-bd21-5c16106a4ac0)
 
 
-Municipio / Provincia erróneos:
+Municipio / Provincia erróneos (404 not found). San Fernando no está en Almería:
 ![CapMongo7](https://github.com/user-attachments/assets/89180d38-6ed3-4204-abd8-e405c4e8c22f)
 
 
