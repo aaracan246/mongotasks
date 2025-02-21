@@ -79,6 +79,7 @@ Base de datos pre register:
 
 
 Register:
+
 ![CapMongo2](https://github.com/user-attachments/assets/d6b9a2c6-e023-4840-bbc3-d922d52d25c8)
 
 
@@ -86,10 +87,19 @@ Registro en LogCat:
 ![CapMongo3](https://github.com/user-attachments/assets/8a99977a-83e7-469b-aaf1-e9d3829f2bf7)
 
 Registro erróneo:
+
 ![CapMongo5](https://github.com/user-attachments/assets/361e9ca2-4d2f-4ff9-aecf-58e210d89554)
 
 Registro erróneo (municipio incorrecto):
 ![CapMongo4](https://github.com/user-attachments/assets/a4dbec8d-1886-42ac-b81b-0ab0ec9d8969)
+
+
+Login (no funcional en interfaz aún):
+![CapMongo6](https://github.com/user-attachments/assets/2525e572-5838-4574-bd21-5c16106a4ac0)
+
+
+Municipio / Provincia erróneos:
+![CapMongo7](https://github.com/user-attachments/assets/89180d38-6ed3-4204-abd8-e405c4e8c22f)
 
 
 
