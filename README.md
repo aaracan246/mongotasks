@@ -102,12 +102,14 @@ Municipio / Provincia erróneos (404 not found). San Fernando no está en Almer�
 ![CapMongo7](https://github.com/user-attachments/assets/89180d38-6ed3-4204-abd8-e405c4e8c22f)
 
 Login (interfaz):
-![CapMongo8](https://github.com/user-attachments/assets/d97097ae-6fb1-4faa-a6c7-d9af95caef14)
 
+![CapMongo9](https://github.com/user-attachments/assets/1655ec8b-ce11-4c24-a50b-c76b096f0de5)
 
 
 LogCat exitoso:
-![CapMongo9](https://github.com/user-attachments/assets/1655ec8b-ce11-4c24-a50b-c76b096f0de5)
+
+
+![CapMongo8](https://github.com/user-attachments/assets/d97097ae-6fb1-4faa-a6c7-d9af95caef14)
 
 
 
