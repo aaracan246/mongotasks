@@ -10,6 +10,7 @@ data class Usuario(
     val _id: String?,
     val username: String,
     val password: String,
+    val email: String,
     val roles: String = "USER",
     val direccion: Direccion,
     val listaTareas: List<Tarea>? = listOf()

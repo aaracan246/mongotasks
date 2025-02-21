@@ -45,7 +45,8 @@ class UsuarioService : UserDetailsService {
         // Comprobar si los campos vienen vacíos
         if (usuarioInsertadoDTO.username.isBlank()
             || usuarioInsertadoDTO.password.isBlank()
-            || usuarioInsertadoDTO.passwordRepeat.isBlank()) {
+            || usuarioInsertadoDTO.passwordRepeat.isBlank()
+            || usuarioInsertadoDTO.email.isBlank()){
 
             throw BadRequestException("Uno o más campos vacíos")
         }
@@ -98,7 +99,9 @@ class UsuarioService : UserDetailsService {
             usuarioInsertadoDTO.username,
             passwordEncoder.encode(usuarioInsertadoDTO.password),
             usuarioInsertadoDTO.email,
-            usuarioInsertadoDTO.direccion
+            usuarioInsertadoDTO.rol,
+            usuarioInsertadoDTO.direccion,
+
         )
 
         // inserto en bd
@@ -107,6 +110,7 @@ class UsuarioService : UserDetailsService {
         // retorno un DTO
         return UsuarioDTO(
             usuario.username,
+            usuario.email,
             usuario.roles,
             usuario.direccion
         )
