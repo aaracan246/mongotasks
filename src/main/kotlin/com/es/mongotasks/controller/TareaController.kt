@@ -33,7 +33,11 @@ class TareaController {
     }
 
     @GetMapping()
-    fun getAllTareas(){}
+    fun getAllTareas(): List<Tarea>{
+        val lista = tareaService.findAll()
+
+        return lista
+    }
 
     @PutMapping("/update_tarea/{id}")
     fun updateTarea(){}

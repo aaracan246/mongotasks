@@ -12,11 +12,14 @@ class TareaService {
     private lateinit var tareaRepository: TareaRepository
 
     fun insertTarea(tarea: Tarea): Tarea{
-
-        return tarea
+        return tareaRepository.save(tarea)
     }
 
+    fun findAll(): List<Tarea> {
+        val listaTarea = tareaRepository.findAll()
 
+        return listaTarea
+    }
 
 
 }
