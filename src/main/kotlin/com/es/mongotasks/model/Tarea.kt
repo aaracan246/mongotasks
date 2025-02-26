@@ -10,5 +10,5 @@ data class Tarea(
     val titulo: String,
     val desc: String,
     val status: Boolean,
-    val usuario: Usuario
+    val usuario: String
     )

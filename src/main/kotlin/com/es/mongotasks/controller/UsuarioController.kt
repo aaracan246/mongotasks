@@ -52,7 +52,6 @@ class UsuarioController {
             throw Exception("Rol cannot be empty.")
         }
 
-
         val usuarioInsertadoDTO: UsuarioDTO = usuarioService.insertUser(usuarioRegisterDTO)
 
         return ResponseEntity(usuarioInsertadoDTO, HttpStatus.CREATED)
