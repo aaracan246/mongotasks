@@ -44,10 +44,20 @@ class TareaController {
     }
 
     @GetMapping()
-    fun getAllTareas(): List<Tarea>{
-        val lista = tareaService.findAll()
+    fun getAllTareas(
+        @RequestHeader("Authorization") token: String
+    ): List<Tarea>{
+        val usernameToCheck = tokenService.extractorUsername(token)
+        val userRoleCheck = tokenService.extractorRoles(token)
+        val listaTareasTotal = tareaService.findAll()
+        var listaTareasUser: MutableList<Tarea> = mutableListOf()
 
-        return lista
+        if (userRoleCheck == "ADMIN") {
+            return listaTareasTotal
+           }
+
+        listaTareasUser = listaTareasTotal.filter { it.usuario == usernameToCheck }.toMutableList()
+        return listaTareasUser
     }
 
     @PutMapping("/update_tarea/{id}")
