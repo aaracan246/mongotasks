@@ -54,6 +54,7 @@ class TareaController {
 
         if (userRoleCheck == "ADMIN") {
             return listaTareasTotal
+
            }
 
         listaTareasUser = listaTareasTotal.filter { it.usuario == usernameToCheck }.toMutableList()
