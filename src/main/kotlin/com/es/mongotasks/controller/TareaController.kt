@@ -1,6 +1,7 @@
 package com.es.mongotasks.controller
 
 import com.es.mongotasks.error.exception.BadRequestException
+import com.es.mongotasks.error.exception.ForbiddenException
 import com.es.mongotasks.error.exception.NotFoundException
 import com.es.mongotasks.model.Tarea
 import com.es.mongotasks.service.TareaService
@@ -31,12 +32,12 @@ class TareaController {
         val usernameToCheck = tokenService.extractorUsername(token)
         val userRoleCheck = tokenService.extractorRoles(token)
 
-        if (newTarea.titulo.isEmpty() || newTarea.status == null || newTarea.usuario == null){
+        if (newTarea.titulo.isEmpty() && newTarea.status == null && newTarea.usuario == null){
             throw BadRequestException("No field can be empty.")
         }
 
 
-        if (newTarea.usuario == usernameToCheck || userRoleCheck == "ADMIN"){
+        if (userRoleCheck != "ROLE_ADMIN" && newTarea.usuario != usernameToCheck){
             val insertTarea = tareaService.insertTarea(newTarea)
             return ResponseEntity(insertTarea, HttpStatus.CREATED)
         }
@@ -52,7 +53,7 @@ class TareaController {
         val listaTareasTotal = tareaService.findAll()
         var listaTareasUser: MutableList<Tarea> = mutableListOf()
 
-        if (userRoleCheck == "ADMIN") {
+        if (userRoleCheck == "ROLE_ADMIN") {
             return listaTareasTotal
            }
 
@@ -60,7 +61,7 @@ class TareaController {
         return listaTareasUser
     }
 
-    @PutMapping("/update_tarea/{id}")
+    @PutMapping("/update_tarea/{id}")   // No es necesaria para la entrega
     fun updateTarea(
         @PathVariable id: String,
         @RequestBody updatedTarea: Tarea
@@ -79,19 +80,41 @@ class TareaController {
     }
 
     @PutMapping("/complete_tarea/{id}")
-    fun completeTarea(@PathVariable id: String): ResponseEntity<Tarea> {
+    fun completeTarea(
+        @PathVariable id: String,
+        @RequestHeader("Authorization") token: String
+    ): ResponseEntity<Tarea> {
+        val usernameToCheck = tokenService.extractorUsername(token)
+        val userRoleCheck = tokenService.extractorRoles(token)
         val existingTarea = tareaService.findById(id) ?: throw NotFoundException("Tarea not found.")
 
-        val updated = existingTarea.copy(status = true)
-        val savedTarea = tareaService.updateTarea(updated)
+
+        println(userRoleCheck) // depurasao
+        val updatedTask = existingTarea.copy(status = false) // Solo cambiamos el estado, el resto igual
+        if (userRoleCheck != "ROLE_ADMIN" && updatedTask.usuario != usernameToCheck){
+            throw ForbiddenException("You do not have the required role.")
+        }
+
+        val savedTarea = tareaService.updateTarea(updatedTask)
         return ResponseEntity(savedTarea, HttpStatus.OK)
     }
 
     @DeleteMapping("/delete_tarea/{id}")
-    fun deleteTarea(@PathVariable id: String){
+    fun deleteTarea(
+        @PathVariable id: String,
+        @RequestHeader("Authorization")
+        token: String): ResponseEntity<String>
+    {
+        val usernameToCheck = tokenService.extractorUsername(token)
+        val userRoleCheck = tokenService.extractorRoles(token)
         val existingTarea = tareaService.findById(id) ?: throw NotFoundException("Tarea not found.")
 
+        if (userRoleCheck != "ROLE_ADMIN" && existingTarea.usuario != usernameToCheck){
+            throw ForbiddenException("You do not have the required role.")
+        }
+
         tareaService.delete(existingTarea)
-        println("Tarea deleted successfully.")
+
+        return ResponseEntity("Task deleted successfully!", HttpStatus.OK)
     }
 }
