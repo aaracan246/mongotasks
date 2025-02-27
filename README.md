@@ -155,3 +155,8 @@ Obtener todas las tareas (admin, logueado como Manolo):
 Obtener tareas propias (user, logueado como Pwaqo):
 
 ![image](https://github.com/user-attachments/assets/26f53498-f8c0-4f15-a54e-f16c609a671c)
+
+
+Prueba de permisos (todos los endpoints se comprueban igual. Pwaqo (USER) poniendo una tarea a Manolo)):
+
+![image](https://github.com/user-attachments/assets/e9e1599c-cbad-463d-804a-ea6532bd37fb)
