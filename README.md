@@ -117,3 +117,46 @@ Usuario en MongoDB para el login:
 ![CapMongo99](https://github.com/user-attachments/assets/e076904d-0008-4c61-a987-5b0fa45aefbc)
 
 
+PRUEBAS TASKS:
+
+Insert adecuado:
+
+![image](https://github.com/user-attachments/assets/3f458447-a18f-4ead-9628-1329cbd1d5d6)
+
+Insert incorrecto (campo vacío):
+
+![image](https://github.com/user-attachments/assets/cbc004a1-a8f5-4337-b345-aaa3543cd810)
+
+Delete adecuado:
+
+![image](https://github.com/user-attachments/assets/b0eb7e05-b3c1-4815-b134-0bbeb803b335)
+
+
+![image](https://github.com/user-attachments/assets/1f8dd18d-c43d-42c5-b849-0d0ff859a943)
+
+
+Delete incorrecto (ID errónea):
+
+![image](https://github.com/user-attachments/assets/43dc8950-bbd5-465d-9a81-a4c92c82b3e2)
+
+Completar tarea adecuado:
+
+![image](https://github.com/user-attachments/assets/f20f313a-5af8-4aaa-84b2-9de0097f0af4)
+
+
+Completar tarea incorrecto (status false, tarea ya completada):
+
+![image](https://github.com/user-attachments/assets/f71060e3-a07f-4752-8f07-18c5dd8e1e1a)
+
+Obtener todas las tareas (admin, logueado como Manolo):
+
+![image](https://github.com/user-attachments/assets/e80e9972-18c7-4362-9576-88979e1ba2c0)
+
+Obtener tareas propias (user, logueado como Pwaqo):
+
+![image](https://github.com/user-attachments/assets/26f53498-f8c0-4f15-a54e-f16c609a671c)
+
+
+Prueba de permisos (todos los endpoints se comprueban igual. Pwaqo (USER) poniendo una tarea a Manolo)):
+
+![image](https://github.com/user-attachments/assets/e9e1599c-cbad-463d-804a-ea6532bd37fb)
