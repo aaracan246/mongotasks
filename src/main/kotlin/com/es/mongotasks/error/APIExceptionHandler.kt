@@ -1,10 +1,11 @@
 package com.es.mongotasks.error
 
+import com.es.mongotasks.error.exception.BadRequestException
 import com.es.mongotasks.error.exception.ForbiddenException
 import com.es.mongotasks.error.exception.NotFoundException
 import jakarta.servlet.http.HttpServletRequest
-import org.apache.coyote.BadRequestException
-import org.springframework.data.crossstore.ChangeSetPersister
+
+
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.ControllerAdvice
 import org.springframework.web.bind.annotation.ExceptionHandler
@@ -15,9 +16,10 @@ import org.springframework.web.bind.annotation.ResponseStatus
 class APIExceptionHandler {
 
     @ExceptionHandler(
+        BadRequestException::class,
         IllegalArgumentException::class,
         NumberFormatException::class,
-        BadRequestException::class,
+
         )
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody

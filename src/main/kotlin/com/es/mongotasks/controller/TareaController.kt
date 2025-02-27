@@ -38,10 +38,11 @@ class TareaController {
 
 
         if (userRoleCheck != "ROLE_ADMIN" && newTarea.usuario != usernameToCheck){
-            val insertTarea = tareaService.insertTarea(newTarea)
-            return ResponseEntity(insertTarea, HttpStatus.CREATED)
+            throw BadRequestException("You do not have the required role.")
         }
-        else return null
+        val insertTarea = tareaService.insertTarea(newTarea)
+        return ResponseEntity(insertTarea, HttpStatus.CREATED)
+
     }
 
     @GetMapping()
@@ -95,6 +96,11 @@ class TareaController {
 
         println(userRoleCheck) // depurasao
         val updatedTask = existingTarea.copy(status = false) // Solo cambiamos el estado, el resto igual
+
+        if (updatedTask.status == false){
+            throw BadRequestException("That task was already completed.")
+        }
+
         if (userRoleCheck != "ROLE_ADMIN" && updatedTask.usuario != usernameToCheck){
             throw ForbiddenException("You do not have the required role.")
         }
