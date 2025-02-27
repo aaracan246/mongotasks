@@ -148,10 +148,10 @@ Completar tarea incorrecto (status false, tarea ya completada):
 
 ![image](https://github.com/user-attachments/assets/f71060e3-a07f-4752-8f07-18c5dd8e1e1a)
 
-Obtener todas las tareas (admin):
+Obtener todas las tareas (admin, logueado como Manolo):
 
 ![image](https://github.com/user-attachments/assets/e80e9972-18c7-4362-9576-88979e1ba2c0)
 
-Obtener tareas propias (user):
+Obtener tareas propias (user, logueado como Pwaqo):
 
 ![image](https://github.com/user-attachments/assets/26f53498-f8c0-4f15-a54e-f16c609a671c)
