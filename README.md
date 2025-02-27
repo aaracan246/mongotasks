@@ -25,7 +25,7 @@ Tarea. Un documento que almacena la información sobre la tarea a resolver, ya s
 Campos de Tarea:
 - title
 - desc
-- user: Usuario
+- user: String -> Nombre del usuario
 
 
 Posibles endpoints del proyecto:
