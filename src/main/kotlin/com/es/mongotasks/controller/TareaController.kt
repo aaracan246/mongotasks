@@ -61,6 +61,8 @@ class TareaController {
         return listaTareasUser
     }
 
+    //____________________________________________________________________________________________
+
     @PutMapping("/update_tarea/{id}")   // No es necesaria para la entrega
     fun updateTarea(
         @PathVariable id: String,
@@ -78,6 +80,8 @@ class TareaController {
         val savedTarea = tareaService.updateTarea(updated)
         return ResponseEntity(savedTarea, HttpStatus.OK)
     }
+
+    //____________________________________________________________________________________________
 
     @PutMapping("/complete_tarea/{id}")
     fun completeTarea(
