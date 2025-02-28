@@ -165,3 +165,14 @@ Parámetros de seguridad:
 
 ![image](https://github.com/user-attachments/assets/7afd983d-8f8c-4b16-971a-fc26ff5ce2e9)
 
+Comprobación de seguridad:
+
+Para comprobar la seguridad se utiliza el token, del que extraemos el rol y el nombre. Si el rol no es  "ADMIN" y el username relacionado con la tarea no es el de la persona que ha logueado, se deniega la petición:
+
+![image](https://github.com/user-attachments/assets/834aa241-418b-4827-a099-e8bccc6e62f7)
+
+![image](https://github.com/user-attachments/assets/5023c76a-7dd4-4b6e-af97-6e2e4bc16ec7)
+
+
+
+
