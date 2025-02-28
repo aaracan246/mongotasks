@@ -160,3 +160,8 @@ Obtener tareas propias (user, logueado como Pwaqo):
 Prueba de permisos (todos los endpoints se comprueban igual. Pwaqo (USER) poniendo una tarea a Manolo)):
 
 ![image](https://github.com/user-attachments/assets/e9e1599c-cbad-463d-804a-ea6532bd37fb)
+
+Parámetros de seguridad:
+
+![image](https://github.com/user-attachments/assets/7afd983d-8f8c-4b16-971a-fc26ff5ce2e9)
+
