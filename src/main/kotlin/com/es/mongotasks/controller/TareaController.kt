@@ -96,8 +96,8 @@ class TareaController {
 
         println(userRoleCheck) // depurasao
 
-        val updatedTask = if (existingTarea.status == true) {
-            existingTarea.copy(status = false)
+        val updatedTask = if (existingTarea.status == false) {
+            existingTarea.copy(status = true)
         } else {
             throw BadRequestException("That task was already completed.")
         }
