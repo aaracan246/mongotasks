@@ -95,11 +95,13 @@ class TareaController {
 
 
         println(userRoleCheck) // depurasao
-        val updatedTask = existingTarea.copy(status = false) // Solo cambiamos el estado, el resto igual
 
-        if (updatedTask.status == false){
+        val updatedTask = if (existingTarea.status == true) {
+            existingTarea.copy(status = false)
+        } else {
             throw BadRequestException("That task was already completed.")
         }
+
 
         if (userRoleCheck != "ROLE_ADMIN" && updatedTask.usuario != usernameToCheck){
             throw ForbiddenException("You do not have the required role.")
