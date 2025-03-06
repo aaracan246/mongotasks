@@ -45,7 +45,7 @@ class TareaController {
 
     }
 
-    @GetMapping()
+    @GetMapping("/allTareas")
     fun getAllTareas(
         @RequestHeader("Authorization") token: String
     ): List<Tarea>{
